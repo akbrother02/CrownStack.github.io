@@ -25,3 +25,9 @@ tags:
 The data shows that when developers create their own deadlines they become more productive because they feel morally responsible for finishing what they have promised and that too, without someone needing to tell them to finish their work.
 
 * Every human being has his/her own personality and therefore trying to create one unique framework for everyone to follow is a stupid mistake.
+
+* Software development is one of that profession in which mind needs to work harder than muscle. Therefore investing in quiet, disturbance-free environment is one of the best investment companies can make.
+
+* In general, the best developers outperform the worst by 10:1.  While the best developers are about 2.5 times better than a median performer. Also, top-performers' space is generally found to be quieter, more private, better protected from interruptions.
+
+* When people start to complain that they can not do work in regular 9 to 5 hours, there is something needs to be done about the work environment.
