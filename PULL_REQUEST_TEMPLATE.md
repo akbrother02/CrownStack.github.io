@@ -6,3 +6,4 @@ Please check all the items in following check list -
 - [ ] I verfiy that the content has not been copy-pasted from anywhere else. 
 - [ ] I am satisfied with the output. 
 - [ ] I have improved over the last month.
+- [ ] I verify the the author information is correct and my image is also included. 
