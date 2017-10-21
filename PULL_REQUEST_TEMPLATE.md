@@ -7,3 +7,7 @@ Please check all the items in following check list -
 - [ ] I am satisfied with the output. 
 - [ ] I have improved over the last month.
 - [ ] I verify the the author information is correct and my image is also included. 
+- [ ] Week One update was given
+- [ ] Week Two update was given
+- [ ] Week Three update was given
+- [ ] Week Four update was given
