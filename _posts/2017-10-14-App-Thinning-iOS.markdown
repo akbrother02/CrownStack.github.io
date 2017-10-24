@@ -25,7 +25,7 @@ The optimizations help reduce the size of the application when the user installs
 *On-demand resources* is the most relevant for gaming related apps.
 
 
-####Slicing
+#### Slicing
 
 Slicing is the process of creating different variations of app bundle for different target devices. A variant contains only the executable architecture and resources those are needed for the target device. The store will create and deliver different variants based on the devices your app supports. Image resources are sliced according to their resolution and device family. GPU resources are sliced according to device capabilities. For tvOS apps, assets in catalogs shared between iOS and tvOS targets are sliced and large app icons are removed. When the user installs an app, a variant for the user’s device is downloaded and installed.
 
@@ -34,7 +34,7 @@ Images stored in 1x, 2x, and 3x format will automatically be sliced per device a
 <img src="/static/app_ thinning_slicing.png" alt="Drawing" style="width: 600px;"/>
 
 
-####On-Demand Resources
+#### On-Demand Resources
 
 On Demand Resources is another great way to minimize your app size. It enable faster downloads and smaller app sizes, improving the first-time launch experience. This is useful for very large apps, especially ones that you would like to stay within the cellular data download limit. For example, a game app may divide resources into game levels and request the next level of resources only when the app anticipates that the user will move to that level. Similarly, the app can request In-App Purchase resources only when the user buys the corresponding in-app purchase.
 
@@ -71,13 +71,13 @@ init(tags:) and init(tag:bundle:) are used to Initialize a resource request for 
 
 Basically, three methods are used to access the resources.
 
-##func beginAccessingResourcesWithCompletionHandler(_:)
+## func beginAccessingResourcesWithCompletionHandler(_:)
 This method requests access to the resources marked with the managed tags. If any of the resources are not on the device, they are requested from the App Store.
 
-##func conditionallyBeginAccessingResourcesWithCompletionHandler(_:)
+## func conditionallyBeginAccessingResourcesWithCompletionHandler(_:)
 This method first checks availability on the device then requests access to the resources marked with the managed tags. If any of the resources are not on the device, they are requested from the App Store.
 
-##func endAccessingResources()
+## func endAccessingResources()
 This method informs the system that you have finished accessing the resources marked with the tags managed by the request.
 
 This code snippet shows how to implement the method in swift.
@@ -99,7 +99,7 @@ resourceRequest.conditionallyBeginAccessingResourcesWithCompletionHandler {(reso
 }
 ```
 
-####Bitcode
+#### Bitcode
 
 The final process in app thinning is bitcode, if your app is uploaded to the store in bitcode, future updates and optimizations can be made automatically by the App Store itself, adding to any potential improvements that developers make to their apps.
 
@@ -115,7 +115,7 @@ This can be enable in the project settings under Build Settings and selecting bi
 
 
 
-####Exporting Your App for Testing (iOS, tvOS, watchOS)
+#### Exporting Your App for Testing (iOS, tvOS, watchOS)
 
 Before uploading your app to iTunes Connect, optionally distribute it for testing on registered devices using an ad hoc provisioning profile or team provisioning profile. These distribution methods allow you to test variants of your app that are built locally by Xcode. Testers don’t need to be team members or iTunes Connect users to run the app, but their devices need to be registered in your developer account. You can register up to 100 devices per product family per year that your team uses for development and testing.
 
@@ -139,7 +139,7 @@ Register one or more test devices before you create an ad hoc or team provisioni
 
 Next, create an archive of your app. Xcode stores this archive in the Archives organizer.
 
-#To create an archive
+# To create an archive
 
  * In the Xcode project editor, choose a generic device—Generic iOS Device, Generic tvOS Device, or Generic iOS Device + watchOS Device—or your device name from the Scheme toolbar menu.
  You can’t create an archive of a simulator build. If a device is connected to your Mac, the device name appears in the Scheme toolbar menu. When you disconnect the device, the menu item changes to the generic device name.
