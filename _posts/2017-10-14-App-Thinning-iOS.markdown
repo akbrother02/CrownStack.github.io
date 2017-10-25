@@ -214,7 +214,7 @@ If possible, don’t use a Mac that you use for development. For watchOS apps, c
 
 The app appears in the iTunes Apps list.
 
-<img src="/static/.png" alt="Drawing" style="width: 600px;"/>
+<img src="/static/app_thinning_installapp.png" alt="Drawing" style="width: 600px;"/>
 
 5. Under Apps, choose “Sort by Name” or “Sort by Kind” from the pop-up menu.
 An Install or Remove button appears adjacent to the app.
@@ -227,3 +227,14 @@ The app is uploaded to the device so that the user can start testing.
 
 Finally, send the iOS App file to testers, along with the app installation instructions and the crash report instructions, as described in Soliciting Crash Reports from Testers.
 
+## *How to check real App Store File Size*
+
+If you are worried about the size of your App Store file, you can check using below steps
+
+1. Go to iTunes Connect -> Your App -> Activity Tab
+2. Go to the version you want to check and click on a build that you want to observe. There you have an option App Store File Sizes 
+
+Following screenshot is an example, how size differ according to various devices.
+
+
+<img src="/static/app_thinning_size_appstore.png" alt="Drawing" style="width: 600px;"/>
