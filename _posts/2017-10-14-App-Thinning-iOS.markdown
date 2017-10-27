@@ -74,7 +74,7 @@ There are three main categories in On Demand Resources..
 Implementing On-Demand Resource management in app
 Initializing a Resource Request
 
-```swift init(tags:)``` and ```swiftinit(tag:bundle:)``` are used to Initialize a resource request for managing the on-demand resources marked with any of the set of specified tags. The managed resources are loaded into the main bundle or specific bundle respectively.
+```init(tags:)``` and ```init(tag:bundle:)``` are used to Initialize a resource request for managing the on-demand resources marked with any of the set of specified tags. The managed resources are loaded into the main bundle or specific bundle respectively.
 
 Basically, three methods are used to access the resources.
 
@@ -135,17 +135,16 @@ These are the steps to export your app for testing:
 2. Archive your app.
 3. Export the archive using either an ad hoc provisioning profile or team provisioning profile to code sign your app.
 4. Install the app on test devices.
-5. Solicit crash reports from testers.
 
 What is ad hoc profile
 
 An ad hoc provisioning profile is a distribution provisioning profile that allows your app to be installed on designated devices and to use app services without the assistance of Xcode. It’s one of the two types of distribution provisioning profiles that you can create for apps. (You use the other type of distribution provisioning profile later to submit your app to the store.)
 
-### 1. Registering Test Devices
+### 1. *Registering Test Devices*
 
 Register one or more test devices before you create an ad hoc or team provisioning profile. To register test devices, collect device IDs from testers and add them to your developer account.
 
-### 2. Archiving Your App
+### 2. *Archiving Your App*
 
 Next, create an archive of your app. Xcode stores this archive in the Archives organizer.
 
@@ -159,10 +158,11 @@ Next, create an archive of your app. Xcode stores this archive in the Archives o
 
 Xcode runs preliminary validation tests on the archive and may display a validation warning in the project editor. If you see a warning, fix the issue and create the archive again.
 
-### 3. Exporting Your App for Testing Outside the Store
+### 3. *Exporting Your App for Testing Outside the Store*
 
-*To create an iOS App file for testing*
- 1. Open the Archives organizer (choose Organizer from the Window menu), and select the archive.
+###### To create an iOS App file for testing*
+
+1. Open the Archives organizer (choose Organizer from the Window menu), and select the archive.
 
   <img src="/static/app_thinning_archive_organizer.png" alt="Drawing" style="width: 600px;"/>
 
@@ -207,7 +207,7 @@ Xcode runs preliminary validation tests on the archive and may display a validat
   
     <img src="/static/app_thinning_enter_manifest_info.png" alt="Drawing" style="width: 600px;"/>
 
-### 4. Installing Your App on Test Devices Using iTunes
+### 4. *Installing Your App on Test Devices Using iTunes*
 
 To install the app on an iOS device using iTunes
 
@@ -233,7 +233,7 @@ The app is uploaded to the device so that the user can start testing.
 
 Finally, send the iOS App file to testers, along with the app installation instructions and the crash report instructions, as described in Soliciting Crash Reports from Testers.
 
-## *How to check real App Store File Size*
+## How to check real App Store File Size
 
 If you are worried about the size of your App Store file, you can check using below steps
 
