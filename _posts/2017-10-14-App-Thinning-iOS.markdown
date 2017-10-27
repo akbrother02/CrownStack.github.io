@@ -23,8 +23,10 @@ iOS 9 enables mobile app developers to decrease the size of their app on users�
 
 The optimizations help reduce the size of the application when the user installs it and reduces the application's memory footprint.
 
-*bitcode* is the most relevant for non-gaming related apps.
-*On-demand resources* is the most relevant for gaming related apps.
+ *bitcode* is the most relevant for non-gaming related apps.
+ 
+ *On-demand resources* is the most relevant for gaming related apps.
+
 
 
 
@@ -32,9 +34,10 @@ The optimizations help reduce the size of the application when the user installs
 
 Slicing is the process of creating different variations of app bundle for different target devices. A variant contains only the executable architecture and resources those are needed for the target device. The store will create and deliver different variants based on the devices your app supports. Image resources are sliced according to their resolution and device family. GPU resources are sliced according to device capabilities. For tvOS apps, assets in catalogs shared between iOS and tvOS targets are sliced and large app icons are removed. When the user installs an app, a variant for the user’s device is downloaded and installed.
 
-Images stored in 1x, 2x, and 3x format will automatically be sliced per device according to the device’s native resolution. So, your resources must be organized in asset catalogs. Secondly, you should also make sure you have all available architectures (arm64 armv7 armv7s) enabled in your “Build Settings” under “Valid Architectures”.
+Images stored in 1x, 2x, and 3x format will automatically sliced according to the device’s native resolution. So, your resources must be organized in asset catalogs. Secondly, you should also make sure you have all available architectures (arm64 armv7 armv7s) enabled in your “Build Settings” under “Valid Architectures”.
 
 <img src="/static/app_thinning_slicing.png" alt="Drawing" style="width: 600px;"/>
+
 
 
 
@@ -44,12 +47,11 @@ On Demand Resources is another great way to minimize your app size. It enable fa
 
 For users, on-demand resources work transparently in the background, supplying resources as needed while the user explores the features of your app.
 
-Enabling on demand resources involves changing the “Enable On Demand Resources” boolean to “Yes” in Xcode settings (under Build
-   Settings).
+Enabling on demand resources involves changing the “Enable On Demand Resources” boolean to “Yes” in Xcode settings (under Build Settings).
 
 <img src="/static/app_thinning_on_demand.png" alt="Drawing" style="width: 600px;"/>
 
-There are three main categories On Demand Resources..
+There are three main categories in On Demand Resources..
 
 1. Initial Install Tags
    * These are resources required for the app to run.
@@ -59,7 +61,8 @@ There are three main categories On Demand Resources..
 3. Download Only On Demand Resources
    * These will be downloaded only when requested by the app, where the tags you add can be fetched with an    NSBundleResourceRequest.
 
-   The list of the size limits is this;
+
+**The list of the size limits is:**
 
 * An iOS App Bundle cannot be larger than 2GB.
 * A tvOS App Bundle cannot be larger than 200MB.
@@ -71,7 +74,7 @@ There are three main categories On Demand Resources..
 Implementing On-Demand Resource management in app
 Initializing a Resource Request
 
-init(tags:) and init(tag:bundle:) are used to Initialize a resource request for managing the on-demand resources marked with any of the set of specified tags. The managed resources are loaded into the main bundle or specific bundle respectively.
+```swift init(tags:)``` and ```swiftinit(tag:bundle:)``` are used to Initialize a resource request for managing the on-demand resources marked with any of the set of specified tags. The managed resources are loaded into the main bundle or specific bundle respectively.
 
 Basically, three methods are used to access the resources.
 
@@ -104,6 +107,7 @@ resourceRequest.conditionallyBeginAccessingResourcesWithCompletionHandler {(reso
 ```
 
 
+
 ## Bitcode
 
 The final process in app thinning is bitcode, if your app is uploaded to the store in bitcode, future updates and optimizations can be made automatically by the App Store itself, adding to any potential improvements that developers make to their apps.
@@ -112,7 +116,7 @@ However, the introduction of bitcode means developers will no longer upload a si
 
 This feature works along with the rest of the two processes to ensure that the size of the app is kept to the minimum.
 
-One of the biggest advantages of this process is ensuring that 8GB and 16GB iPhones and iPads remain relevant, which is particularly important as developers and brands target emerging markets
+One of the biggest advantages of this process is ensuring that 8GB and 16GB iPhones and iPads remain relevant, which is particularly important as developers and brands target emerging market.
 
 This can be enable in the project settings under Build Settings and selecting bitcode to YES.
 
@@ -160,13 +164,13 @@ Xcode runs preliminary validation tests on the archive and may display a validat
 *To create an iOS App file for testing*
  1. Open the Archives organizer (choose Organizer from the Window menu), and select the archive.
 
-<img src="/static/app_thinning_archive_organizer.png" alt="Drawing" style="width: 600px;"/>
+  <img src="/static/app_thinning_archive_organizer.png" alt="Drawing" style="width: 600px;"/>
 
 
  2. Click the Export button, select an export option, and click Next.
     To distribute your app to users with designated devices, select “Save for Ad Hoc Deployment.” The app will be code signed with the distribution certificate.
-    
-    <img src="/static/app_thinning_createappstorepackage.png" alt="Drawing" style="width: 600px;"/>
+   
+   <img src="/static/app_thinning_createappstorepackage.png" alt="Drawing" style="width: 600px;"/>
 
 
  3. In the dialog that appears, choose a team from the pop-up menu and click Choose.
@@ -180,7 +184,7 @@ Xcode runs preliminary validation tests on the archive and may display a validat
      * If you want to test all device variances, select “Export for specific devices” and choose “All compatible device variants” from the pop-up menu.
      * If you want to test a specific device variant, select “Export a thinned app for a specific device” and choose the device family from the pop-up menu.
      
-       <img src="/static/app_thinning_export_for_device.png" alt="Drawing" style="width: 600px;"/>
+   <img src="/static/app_thinning_export_for_device.png" alt="Drawing" style="width: 600px;"/>
 
 
  5. In the dialog that appears, review the app, its entitlements, and the provisioning profile.
@@ -201,7 +205,7 @@ Xcode runs preliminary validation tests on the archive and may display a validat
   * **Display Image URL.** A fully qualified HTTPS URL for an app icon that is displayed during download and installation. The image file must be 57 x 57 pixels and in PNG format.
   * **Full Size Image URL.** A fully qualified HTTPS URL for a larger image that is displayed in iTunes. The image file must be 512 x 512 pixels and in PNG format.
   
-      <img src="/static/app_thinning_enter_manifest_info.png" alt="Drawing" style="width: 600px;"/>
+    <img src="/static/app_thinning_enter_manifest_info.png" alt="Drawing" style="width: 600px;"/>
 
 ### 4. Installing Your App on Test Devices Using iTunes
 
@@ -216,7 +220,7 @@ If possible, don’t use a Mac that you use for development. For watchOS apps, c
 
 The app appears in the iTunes Apps list.
 
-<img src="/static/app_thinning_installapp.png" alt="Drawing" style="width: 600px;"/>
+   <img src="/static/app_thinning_installapp.png" alt="Drawing" style="width: 600px;"/>
 
 5. Under Apps, choose “Sort by Name” or “Sort by Kind” from the pop-up menu.
 An Install or Remove button appears adjacent to the app.
@@ -239,4 +243,4 @@ If you are worried about the size of your App Store file, you can check using be
 Following screenshot is an example, how size differ according to various devices.
 
 
-<img src="/static/app_thinning_size_appstore.png" alt="Drawing" style="width: 600px;"/>
+   <img src="/static/app_thinning_size_appstore.png" alt="Drawing" style="width: 600px;"/>
