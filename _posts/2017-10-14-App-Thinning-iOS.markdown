@@ -15,8 +15,10 @@ Apps are downloaded more quickly and have less impact on the limited storage on 
 Let’s take a closer look at what this feature is, and how it can help both developers and the users they are targeting.
 iOS 9 enables mobile app developers to decrease the size of their app on users’ mobile devices through app thinning. This involves using one or a combination of three processes.
 
-**Slicing:** Use an Asset Catalog to install assets on specific devices.
+**Slicing:** Use an Asset Catalog to install assets on specific devices.    
+
 **Bitcode:** Submit partially compiled code that will be optimized by the App Store.
+
 **On-demand resources:** Specific assets are stored in the App Store and downloaded by the application when they are needed, and purged by iOS when disk space is low.
 
 The optimizations help reduce the size of the application when the user installs it and reduces the application's memory footprint.
