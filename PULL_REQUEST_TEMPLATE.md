@@ -11,3 +11,6 @@ Please check all the items in following check list -
 - [ ] Week Two update was given
 - [ ] Week Three update was given
 - [ ] Week Four update was given
+- [ ] The title of blog is interesting.
+
+Please do not create a pull request without all items checked. It will not be accepted in that case.
