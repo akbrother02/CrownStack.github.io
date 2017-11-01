@@ -13,4 +13,4 @@ Please check all the items in following check list -
 - [ ] Week Four update was given
 - [ ] The title of blog is interesting.
 
-Please do not create a pull request without all items checked. It will not be accepted in that case.
+Please do not create a pull request without all items checked. It will not be accepted in that case. Neither it will be accepted after 30th of the Month.
