@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Art of Programming"
+title: "Concept of SOLID Princliples"
 categories:
 - blog
 tags:
