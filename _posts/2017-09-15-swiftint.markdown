@@ -1,5 +1,5 @@
 ---
-title:  "SwiftLint"
+title:  "Swiftlint"
 date:   2017-09-15
 author: Sagar Kumar
 categories:
@@ -8,51 +8,55 @@ tags:
 - iOS
 ---
 
-Swiftlint is an open source tool that enforce us to write a code with good quality. If we are not following Swift style and convention then it throws warnings/errors. Like I am going to make an Enum with name "example" then it'll throw an error with following message "Type Name Violation: Type name should start with an uppercase character: 'example' (type_name)"". I think, Swiftlint is a best tool to improve your coding style in Swift.
+```Swiftlint``` is an open source tool that enforce us to write a code with good quality. If we are not following Swift style and convention then it throws warnings/errors. Like I am going to make an Enum with name "example" then it'll throw an error with following message "Type Name Violation: Type name should start with an uppercase character: 'example' (type_name)"". I think, ```Swiftlint``` is a best tool to improve your coding style in Swift.
 
-## A. Steps to integrate:
+### A. Steps to integrate:
 
-We can configure Swiftlint with the help of following:
-1. Using Homebrew
-2. Using CocoaPods
+We can configure ```Swiftlint``` with the help of following:
+1. Using ```Homebrew```
+2. Using ```CocoaPods```
 
-## 1. Using Homebrew
-Step 1 : Install ‘Homebrew’ into your Mac using the below command :
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+#### 1. Using ```Homebrew```
+Step 1 : Install ‘Homebrew’ into your Mac using the below command:
+```
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"```
 
-Step 2 : Install ‘SwiftLint’ package with the help of below command :
-brew install swiftlint
+Step 2 : Install ‘Swiftlint’ package with the help of below command :
+brew install ```Swiftlint```
 
-Step 3 : To Integrate SwiftLint into current Xcode Project, add a new “Run Script” in Build phase with below contents :
-if which swiftlint >/dev/null; then
-  swiftlint
+Step 3 : To Integrate Swiftlint into current Xcode Project, add a new “Run Script” in Build phase with below contents :
+```
+if which Swiftlint >/dev/null; then
+  Swiftlint
 else
-  echo "warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint"
+  echo "warning: Swiftlint not installed, download from https://github.com/realm/Swiftlint"
 fi
+```
 
-## 2. Using CocoaPods
+#### 2. Using ```CocoaPods```
 Step 1 : Install ‘CocoaPods’ into your Mac using the below command :
 sudo gem install cocoapods
 
-Step 2 : Add 'SwiftLint' in your project with the help of below command:
-pod 'SwiftLint'
+Step 2 : Add 'Swiftlint' in your project with the help of below command:
+pod '```Swiftlint```'
 
-Step 3: Install 'SwiftLint' in your project with the help of below command:
+Step 3: Install 'Swiftlint' in your project with the help of below command:
 pod install
 
-## B. Auto correct:
+### B. Auto correct:
 
-Some of the basic issues (such as whitespace at the end of a line) can be automatically fixed by SwiftLint. Just open the terminal and type the following command in your project root directory.
-
+Some of the basic issues (such as whitespace at the end of a line) can be automatically fixed by Swiftlint. Just open the terminal and type the following command in your project root directory.
+```
 $ cd path/to/project/root/directory
-$ swiftlint autocorrect
-$ swiftlint autocorrect --path your_file.swift #For SwiftLint's auto correct on single file
+$ Swiftlint autocorrect
+$ Swiftlint autocorrect --path your_file.swift #For Swiftlint's auto correct on single file
+```
 
-## C. To configure the behaviour of SwiftLint:
+### C. To configure the behaviour of Swiftlint:
 
-Now we have to fix all other issues that SwiftLint’s autocorrect was not able to do. But fixing all the issues one time it’s too much complex and time consuming. Fortunately, it provides configuration options to ‘enable/disable’ its pre defined rules. So, Initially I will disable all the rules and enable one by one to break down the bigger task into smaller chunks.
+Now we have to fix all other issues that Swiftlint’s autocorrect was not able to do. But fixing all the issues one time it’s too much complex and time consuming. Fortunately, it provides configuration options to ‘enable/disable’ its pre defined rules. So, Initially I will disable all the rules and enable one by one to break down the bigger task into smaller chunks.
 
-To get started, just create '.swiftlint.yml' in your project’s root directory and paste following contents in it.
+To get started, just create '.Swiftlint.yml' in your project’s root directory and paste following contents in it.
 
 disabled_rules:
     - trailing_newline
