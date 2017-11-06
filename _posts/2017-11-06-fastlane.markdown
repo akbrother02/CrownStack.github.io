@@ -1,0 +1,31 @@
+---
+title:  "fastlane"
+date:   2017-11-06
+author: Sagar Kumar
+categories:
+- blog
+tags:
+- iOS
+---
+
+```fastlane``` is a tool for developers that can do following tedious tasks with simple commands.
+
+1. Generating screenshots.
+2. Dealing with provisioning profiles.
+3. Releasing application.
+
+### ```fastlane``` Tools:
+
+* ```deliver```: Upload screenshots, metadata, and your app to the App Store
+* ```snapshot```: Automate taking localized screenshots of your iOS and tvOS apps on every device
+* ```frameit```: Quickly put your screenshots into the right device frames
+* ```pem```: Automatically generate and renew your push notification profiles
+* ```sigh```: Because you would rather spend your time building stuff than fighting provisioning
+* ```produce```: Create new iOS apps on iTunes Connect and Dev Portal using the command line
+* ```cert```: Automatically create and maintain iOS code signing certificates
+* ```spaceship```: Ruby library to access the Apple Dev Center and iTunes Connect
+* ```pilot```: The best way to manage your TestFlight testers and builds from your terminal
+* ```boarding```: The easiest way to invite your TestFlight beta testers
+* ```gym```: Building your iOS apps has never been easier
+* ```match```: Easily sync your certificates and profiles across your team using Git
+* ```scan```: The easiest way to run tests for your iOS and Mac apps
