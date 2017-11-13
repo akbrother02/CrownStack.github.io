@@ -8,24 +8,49 @@ tags:
 - iOS
 ---
 
-```fastlane``` is a tool for developers that can do following tedious tasks with simple commands.
+`fastlane` is a tool for developers that can do following tedious tasks with simple commands.
 
 1. Generating screenshots.
 2. Dealing with provisioning profiles.
 3. Releasing application.
 
-### ```fastlane``` Tools:
+### `fastlane` Tools:
 
-* ```deliver```: Upload screenshots, metadata, and your app to the App Store
-* ```snapshot```: Automate taking localized screenshots of your iOS and tvOS apps on every device
-* ```frameit```: Quickly put your screenshots into the right device frames
-* ```pem```: Automatically generate and renew your push notification profiles
-* ```sigh```: Because you would rather spend your time building stuff than fighting provisioning
-* ```produce```: Create new iOS apps on iTunes Connect and Dev Portal using the command line
-* ```cert```: Automatically create and maintain iOS code signing certificates
-* ```spaceship```: Ruby library to access the Apple Dev Center and iTunes Connect
-* ```pilot```: The best way to manage your TestFlight testers and builds from your terminal
-* ```boarding```: The easiest way to invite your TestFlight beta testers
-* ```gym```: Building your iOS apps has never been easier
-* ```match```: Easily sync your certificates and profiles across your team using Git
-* ```scan```: The easiest way to run tests for your iOS and Mac apps
+* `deliver`: Upload screenshots, metadata, and your app to the App Store
+* `snapshot`: Automate taking localized screenshots of your iOS and tvOS apps on every device
+* `frameit`: Quickly put your screenshots into the right device frames
+* `pem`: Automatically generate and renew your push notification profiles
+* `sigh`: Because you would rather spend your time building stuff than fighting provisioning
+* `produce`: Create new iOS apps on iTunes Connect and Dev Portal using the command line
+* `cert`: Automatically create and maintain iOS code signing certificates
+* `spaceship`: Ruby library to access the Apple Dev Center and iTunes Connect
+* `pilot`: The best way to manage your TestFlight testers and builds from your terminal
+* `boarding`: The easiest way to invite your TestFlight beta testers
+* `gym`: Building your iOS apps has never been easier
+* `match`: Easily sync your certificates and profiles across your team using Git
+* `scan`: The easiest way to run tests for your iOS and Mac apps
+
+
+### Setting up Fastlane
+
+#### 1. Install `Fastlane`:
+Open terminal and run this command:
+
+ `brew cask install fastlane`
+
+### 2. Add `Fastlane` to project:
+Navigate your terminal to your project's directory and run this command:
+
+ `fastlane init`
+
+`fastlane init` will prompt you for various information like Your Apple ID (e.g. fastlane@krausefx.com), asking if you want to use certain tools, and storing the information you input into files. It will create a directory called 'fastlane' in your root directory and a file named `Appfile`. 
+
+The `Appfile` contains information that is universal to all the things you want to do with `Fastlane`. For instance, you would probably specify your `apple_id` and `app_identifier/bundle_id` in it like so:
+
+```
+fastlane/Appfile
+
+apple_id 'abc@abc.com'
+app_identifier 'com.abc.MyBundleID'
+
+```
