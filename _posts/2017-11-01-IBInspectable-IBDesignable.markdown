@@ -9,8 +9,13 @@ tags:
 ---
 
 
+In Xcode 6 and iOS8 two new interface builder declaration attributes were introduced to design, build and integrate custom controls directly in the Interface Builder: `IBInspectable` and `IBDesignable`.
+
 ## IBInspectable
- ```@IBInspectable``` available from iOS 8.0. ```@IBInspectable``` properties provide the custom configuration and rendering of UIView and their subclasses. This is powerful mechanisms apply for XIB , NIB and StoryBoard.
+
+```@IBInspectable``` provide the custom configuration and rendering of UIView and their subclasses at runtime. This is powerful mechanisms apply for XIB , NIB and StoryBoard.
+
+The most useful use case for IBInspectable, and maybe the first that comes to mind, is being able to change the cornerRadius, borderWidth and borderColor of a UIView and their subclasses, something that most probably every iOS developer has to deal with during the development of an App.
 
 Currently the following types support ``` @IBInspectable.```
 * Int
@@ -24,86 +29,274 @@ Currently the following types support ``` @IBInspectable.```
 *	UIColor
 *	UIImage
 
+Those who are already familiar with runtime attributes will have noticed in above list of types. UIColor is the only color type supported, not the CGColor.
 
-Steps with @IBInspectable property on a custom view:
 
-** Step 1: **Create a class InspectableView parent of UIView. In which we set the variable of background color, corner radius, border width and border color with IBInspectable  .
+** Step 1:** Create a class InspectableView parent of UIView. In which we set the variable of background color, corner radius, border width and border color with IBInspectable  .
 
-```
-class InspectableView: UIView {
-
-    // Background Color.
-    @IBInspectable var backgroundColor: UIColor? {
-        didSet {
-            backgroundColor = backColor
-        }
-    }
-
-    // Corner Radius.
-    @IBInspectable var cornerRadius: CGFloat = 0 {
-        didSet {
-            layer.cornerRadius = cornerRadius
-            layer.masksToBounds = cornerRadius > 0
-        }
-    }
-
-    // Border Width.
-    @IBInspectable var borderWidth: CGFloat = 0 {
-        didSet {
-            layer.borderWidth = borderWidth
-            layer.masksToBounds = borderWidth > 0
-        }
-    }
-
-    // Border Color.
-    @IBInspectable var borderColor : UIColor?{
+```swift
+class CSDesignableView: UIView {
+    
+    @IBInspectable var borderColor : UIColor = UIColor.clear{
         didSet{
-            layer.borderColor = borderColor?.cgColor
+            self.layer.borderColor = self.borderColor.cgColor
+        }
+    }
+    
+    @IBInspectable var borderWidth : CGFloat = 0{
+        didSet{
+            self.layer.borderWidth = self.borderWidth
+        }
+    }
+    
+    @IBInspectable var cornerRadius : CGFloat = 0{
+        didSet{
+            self.layer.cornerRadius = self.cornerRadius
+        }
+    }
+}
+
+class CSDesignableButton: UIButton {
+    
+    @IBInspectable var borderColor : UIColor = UIColor.clear{
+        didSet{
+            self.layer.borderColor = self.borderColor.cgColor
+        }
+    }
+    
+    @IBInspectable var borderWidth : CGFloat = 0{
+        didSet{
+            self.layer.borderWidth = self.borderWidth
+        }
+    }
+    
+    @IBInspectable var cornerRadius : CGFloat = 0{
+        didSet{
+            self.layer.cornerRadius = self.cornerRadius
+        }
+    }
+}
+
+class CSDesignableTextField: UITextField {
+    
+    @IBInspectable var borderColor : UIColor = UIColor.clear{
+        didSet{
+            self.layer.borderColor = self.borderColor.cgColor
+        }
+    }
+    
+    @IBInspectable var borderWidth : CGFloat = 0{
+        didSet{
+            self.layer.borderWidth = self.borderWidth
+        }
+    }
+    
+    @IBInspectable var cornerRadius : CGFloat = 0{
+        didSet{
+            self.layer.cornerRadius = self.cornerRadius
+        }
+    }
+    
+    @IBInspectable var placeHolderColor: UIColor? {
+        get
+        {
+            return self.placeHolderColor
+        }
+        set {
+            self.attributedPlaceholder = NSAttributedString(string:self.placeholder != nil ? self.placeholder! : "", attributes:[NSForegroundColorAttributeName: newValue!])
+        }
+    }
+}
+
+class CSDesignableLabel: UILabel {
+    
+    @IBInspectable var borderColor : UIColor = UIColor.clear{
+        didSet{
+            self.layer.borderColor = self.borderColor.cgColor
+        }
+    }
+    
+    @IBInspectable var borderWidth : CGFloat = 0{
+        didSet{
+            self.layer.borderWidth = self.borderWidth
+        }
+    }
+    
+    @IBInspectable var cornerRadius : CGFloat = 0{
+        didSet{
+            self.layer.cornerRadius = self.cornerRadius
+        }
+    }
+}
+
+class CSDesignableImageView: UIImageView {
+    
+    @IBInspectable var borderColor : UIColor = UIColor.clear{
+        didSet{
+            self.layer.borderColor = self.borderColor.cgColor
+        }
+    }
+    
+    @IBInspectable var borderWidth : CGFloat = 0{
+        didSet{
+            self.layer.borderWidth = self.borderWidth
+        }
+    }
+    
+    @IBInspectable var cornerRadius : CGFloat = 0{
+        didSet{
+            self.layer.cornerRadius = self.cornerRadius
         }
     }
 }
 ```
+
+**Step 2 :**  In the Interface Builder (`StoryBoard`) drag and drop a UI component. Go to the `Show the Identity Inspector` and set the Class for that UI component.
+
+<img src="/static/IBInspectable_SetClass.png" alt="Drawing" style="width: 600px;"/>
+
+**Step 3 :**  Whenever you give the parents class then its defined properties are display in the Attributes Inspector. In below image you can see how user can easily use those properties. 
+
+<img src="/static/IBInspectable_UseOfProperties.png" alt="Drawing" style="width: 600px;"/>
+
+
+**Step 4 :**  After applying needed properties, Run your app and see your work in simulator like below one.
+
+<img src="/static/IBInspectable_Simulator.png" alt="Drawing" style="width: 600px;"/>
+
 
 ## IBDesignable
 
-@IBDesignable properties applied to the UIView and their subclasses and it render the view directly in StoryBoard, NIB and XIB, So that we can easily identify about the view before run the app.
+One of the more powerful features introduced with XCode 6 and iOS 8 is the possibility to design, build and integrate custom controls directly in the Interface Builder. Previously, we were able to subclass UIView or any of the UIKit control classes, but we couldn’t really see the results of our customizations until runtime. Now, thanks to IBDesignable controls, we are able to see our custom controls in Interface Builder(storyBoard, nib and xib) exactly as they are going to be rendered live, and this really helps a lot when implementing a concrete design for an App.
 
-Steps with @IBInspectable property on a custom view:
 
-**Step 1 :** We already created a InspectableView class. By simply adding a prefix @IBDesignable to that class we got the functionality of IBDesignable in our custom UIView and in their subclasses. 
+**Step 1 :** We already created a CSDesignable class for various UI componenets. By simply adding a prefix @IBDesignable to that class we got the functionality of IBDesignable in ui components. 
 
-```
+```swift
 @IBDesignable
-class InspectableView: UIView {
-
-    // Background Color.
-    @IBInspectable var backgroundColor: UIColor? {
-        didSet {
-            backgroundColor = backColor
-        }
-    }
-
-    // Corner Radius.
-    @IBInspectable var cornerRadius: CGFloat = 0 {
-        didSet {
-            layer.cornerRadius = cornerRadius
-            layer.masksToBounds = cornerRadius > 0
-        }
-    }
-
-    // Border Width.
-    @IBInspectable var borderWidth: CGFloat = 0 {
-        didSet {
-            layer.borderWidth = borderWidth
-            layer.masksToBounds = borderWidth > 0
-        }
-    }
-
-    // Border Color.
-    @IBInspectable var borderColor : UIColor?{
+class CSDesignableView: UIView {
+    
+    @IBInspectable var borderColor : UIColor = UIColor.clear{
         didSet{
-            layer.borderColor = borderColor?.cgColor
+            self.layer.borderColor = self.borderColor.cgColor
+        }
+    }
+    
+    @IBInspectable var borderWidth : CGFloat = 0{
+        didSet{
+            self.layer.borderWidth = self.borderWidth
+        }
+    }
+    
+    @IBInspectable var cornerRadius : CGFloat = 0{
+        didSet{
+            self.layer.cornerRadius = self.cornerRadius
+        }
+    }
+}
+
+@IBDesignable
+class CSDesignableButton: UIButton {
+    
+    @IBInspectable var borderColor : UIColor = UIColor.clear{
+        didSet{
+            self.layer.borderColor = self.borderColor.cgColor
+        }
+    }
+    
+    @IBInspectable var borderWidth : CGFloat = 0{
+        didSet{
+            self.layer.borderWidth = self.borderWidth
+        }
+    }
+    
+    @IBInspectable var cornerRadius : CGFloat = 0{
+        didSet{
+            self.layer.cornerRadius = self.cornerRadius
+        }
+    }
+}
+
+@IBDesignable
+class CSDesignableTextField: UITextField {
+    
+    @IBInspectable var borderColor : UIColor = UIColor.clear{
+        didSet{
+            self.layer.borderColor = self.borderColor.cgColor
+        }
+    }
+    
+    @IBInspectable var borderWidth : CGFloat = 0{
+        didSet{
+            self.layer.borderWidth = self.borderWidth
+        }
+    }
+    
+    @IBInspectable var cornerRadius : CGFloat = 0{
+        didSet{
+            self.layer.cornerRadius = self.cornerRadius
+        }
+    }
+    
+    @IBInspectable var placeHolderColor: UIColor? {
+        get
+        {
+            return self.placeHolderColor
+        }
+        set {
+            self.attributedPlaceholder = NSAttributedString(string:self.placeholder != nil ? self.placeholder! : "", attributes:[NSForegroundColorAttributeName: newValue!])
+        }
+    }
+}
+
+@IBDesignable
+class CSDesignableLabel: UILabel {
+    
+    @IBInspectable var borderColor : UIColor = UIColor.clear{
+        didSet{
+            self.layer.borderColor = self.borderColor.cgColor
+        }
+    }
+    
+    @IBInspectable var borderWidth : CGFloat = 0{
+        didSet{
+            self.layer.borderWidth = self.borderWidth
+        }
+    }
+    
+    @IBInspectable var cornerRadius : CGFloat = 0{
+        didSet{
+            self.layer.cornerRadius = self.cornerRadius
+        }
+    }
+}
+
+@IBDesignable
+class CSDesignableImageView: UIImageView {
+    
+    @IBInspectable var borderColor : UIColor = UIColor.clear{
+        didSet{
+            self.layer.borderColor = self.borderColor.cgColor
+        }
+    }
+    
+    @IBInspectable var borderWidth : CGFloat = 0{
+        didSet{
+            self.layer.borderWidth = self.borderWidth
+        }
+    }
+    
+    @IBInspectable var cornerRadius : CGFloat = 0{
+        didSet{
+            self.layer.cornerRadius = self.cornerRadius
         }
     }
 }
 ```
+
+**Important:** Sometime Xcode causes problems when displaying the designable controls in IB. When this problem arise  If you find that your designable controls are working in the simulator or in a device, but won’t display in IB, try these steps:
+
+• While in a storyboard, go to “Editor” in the top bar menu
+• uncheck “Automatically refresh views” if it is.
+• clean your project.
+• Go to “Editor” again and click “Refresh All Views”
