@@ -31,26 +31,63 @@ tags:
 * `scan`: The easiest way to run tests for your iOS and Mac apps
 
 
-### Setting up Fastlane
+## Setting up Fastlane
 
-#### 1. Install `Fastlane`:
+### 1. Install `fastlane`:
 Open terminal and run this command:
 
  `brew cask install fastlane`
 
-### 2. Add `Fastlane` to project:
+### 2. Add `fastlane` to project:
 Navigate your terminal to your project's directory and run this command:
 
- `fastlane init`
+`fastlane init`
 
-`fastlane init` will prompt you for various information like Your Apple ID (e.g. fastlane@krausefx.com), asking if you want to use certain tools, and storing the information you input into files. It will create a directory called 'fastlane' in your root directory and a file named `Appfile`. 
+`fastlane init` will prompt you for various information like Your Apple ID (e.g. abc@abc.com), asking if you want to use certain tools, and storing the information you input into files. It will create a directory called 'fastlane' in your root directory and a file named `Appfile`.
 
-The `Appfile` contains information that is universal to all the things you want to do with `Fastlane`. For instance, you would probably specify your `apple_id` and `app_identifier/bundle_id` in it like so:
+The `Appfile` contains information that is universal to all the things you want to do with `fastlane`. For instance, you would probably specify your `apple_id` and `app_identifier/bundle_id` in it like so:
 
-```
-fastlane/Appfile
+  ```
+  fastlane/Appfile
 
-apple_id 'abc@abc.com'
-app_identifier 'com.abc.MyBundleID'
+  apple_id 'abc@abc.com'
+  app_identifier 'com.abc.MyBundleID'
 
-```
+  ```
+If you setup the above, all the `fastlane` tools should know what your apple_id and app_identifier is.
+
+Running `fastlane init` will also create a `Fastfile` , which is a ruby file that defines all your `lanes`. A lane is a set of instructions you want `fastlane` to run. Here is an example of Fastfile:
+
+  ```
+  fastlane/Fastfile
+
+  default_platform :ios
+
+  platform :ios do
+    lane :develop do
+      produce(itc_team_id: '1643054')
+      match(type: development)
+      gym(configuration: 'Development')
+    end
+
+    lane :release do |options|
+      match
+      gym(clean: true, silent: options[:silent])
+    end
+  end
+
+  ```
+
+### 3. Deliver app to TestFlight
+
+#### Setting up `match`
+1. Create a repository on Git to store your certificates.
+
+  * `match` uses another `fastlane` tool call `sigh` to generate certificates and provisioning profiles, and then automatically encrypts them and stores them in a repository. This is a huge benefit because none of the certificates will be stored on your local machine. No more emailing p12s around to other developers, or forgetting where you stored that .mobileprovision profile. If you would rather not store the certificates in a repository, you can always just use `sign` directly.
+
+2. Once you've created a repository to store the certificates, run match init
+
+      ```
+      fastlane match init
+
+      ```
