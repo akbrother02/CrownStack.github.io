@@ -55,3 +55,11 @@ Pushpraj Chaudhary:
   avatar      : "/static/pushpraj.jpeg"
   twitter     : "https://twitter.com/rajchdhry"
   github      : "https://github.com/pushprajchaudhary"
+
+  Ankit Jaiswal:
+    name        : "Ankit Jaiswal"
+    email       : "ankit.jaiswal@crownstack.com"
+    bio         : "I am an iOS developer at CrownStack."
+    avatar      : "/static/AnkitJaiswal.jpg"
+    twitter     : "https://twitter.com/ankitajju"
+    github      : "https://github.com/ankitjaiswal1994"
