@@ -94,12 +94,12 @@ Next, let’s have a look at the bottom_nav_menu.xml resource file that creates 
 
 Each item is given an ID for referencing in code, a title to describe the item, an icon to provide a visual representation of the item, and an enabled state. All items are given the app:showAsAction=”ifRoom” attribute which will show the item if room is available. Since bottom navigation bars are only supposed to contain three to five items, we can safely assume that all of our items will show.
 
-To finish our demonstration, we need to set up our Main Activity and the fragments associated with each navigation item. Our BottomNavigationView logic is isolated to the MainActivity.
+To finish our demonstration, we need to set up our Main Activity and the fragments associated with each navigation item. Our `BottomNavigationView` logic is isolated to the MainActivity.
 
 ```
 public class MainActivity extends AppCompatActivity {
 
- private BottomNavigationView mBottomNavigationView;
+ private  mBottomNavigationView;
 
  @Override
  protected void onCreate(Bundle savedInstanceState) {
@@ -186,5 +186,4 @@ The HomeFragment is being launched initially and then any time a navigation item
 
 ### CONCLUSION
 
-Bottom navigation brings another way of designing navigation for Android apps. When used correctly, this new style of navigation looks amazing in apps using material design. Developers should use the bottom navigation flow to facilitate easy and visible navigation for the user. For another example of how bottom navigation works, check out the
-`Google Photos` app on the Google Play Store.
+Bottom navigation brings another way of designing navigation for Android apps. When used correctly, this new style of navigation looks amazing in apps using material design. Developers should use the bottom navigation flow to facilitate easy and visible navigation for the user. 
