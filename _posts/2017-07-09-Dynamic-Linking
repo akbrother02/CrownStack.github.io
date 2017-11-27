@@ -1,0 +1,277 @@
+---
+layout: post
+title: "Dynamic Linking"
+categories:
+- blog
+tags:
+- UI
+author: Prinsu Kumar
+---
+
+Firebase is such an exciting new collection of services that I have been reading.
+Now lets cover the feature of `Firebase` to learn excatly how we can use `Firebase Dynamic Links`.
+It allow us to provide deep links that have ability to survive the installation process and more.
+Ex: Suppose you want to link the user to a specific screen in our app from an external source, then
+you can create a deep link to achieve this functionality.
+
+Note: Suppose user doesn't have our app installed, in this case deep links would not work.
+Then Firebase features what are called `Dynamic Links` these links are as same as deep links,
+except they are able to provide the install process. So if the user clicks one of these links without
+having our app installed, it will take up to install the app from `Google play store` or your custom app link
+and after completion it will
+navigate you to the deep link that has been assigned to `Dynamic link`.
+
+### Hold context across application install
+
+If the user clicks the dynamic link and the link requires your application to be installed,
+then link will be opened directly once the application has been installed.
+
+### Hold context across application upgrades
+
+if the clicked dynamic link requires an upgraded version,
+then it will handle the dynamic link once the application has finished installing.
+
+### Behave just like normal links
+
+In case the application doesn't require installation(if already installed) then clicking the dynamic link
+will automatically open the desired screen.
+Now if something is remaining, we can integrate Dynamic Links with Firebase Analytics to track the
+interaction with any links that we generate for our applications.
+But if we require only simple tracking, then we can use the automatic built-in analytics from the
+Dynamic Links panel within Firebase Console where we can collect interacted links.
+Deep linking is a technology that closes the gap between multiple platforms.
+
+For example: Suppose your friend has emailed or shared some youtube video to you.
+When you are on `web platform` , you click on that url and it will simply navigate you
+to the youtube video. But in mobile, If you have configured `deep linking` in your app,
+When you click on the link, It will ask you to open that link either in browser,
+youtube or some other app that is also configured to handle youtube video urls.
+
+### Why Deep Linking ?
+
+Link Name: This is the name which you will be using to define the link,
+make sure it should short and descriptive.
+
+Link URL: The deep link in which the application will open for this link.
+
+There are multiple use cases. Some of them are:
+
+## Converting web users to App users:
+
+When a user shares a link from your web app, you can generate deep link for it.
+So when the user open that link on different device,
+they will automatically redirected to your app.
+
+## To increase user experience:
+
+Suppose the user was browsing your app and decides to email the link to itself.
+If user have your app installed, it will automatically be navigated to that content
+that he was previously browsing.
+
+
+## What can we do with Firebase Dynamic Links?
+
+Dynamic Links offer our applications a much more powerful way of linking to content within our apps.
+They’re basically deep links on steroids with the ability to:
+  * Persist context across application install
+  If the user clicks a dynamic link and the the link requires your application to be installed,
+  then the linked will automatically be opened once the application has been installed.
+
+  * Persist context across application upgrades
+  On Android, if the clicked dynamic link requires an upgraded version of our application,
+  then just like the last point our application will automatically handle the dynamic link once
+  the application has finished installing.
+
+  * Behave just like normal Links
+  In cases where the application doesn’t require installation (say, if it’s already installed)
+  then clicking the Dynamic Link will automatically open the link to the desired screen.
+
+  From the above points you can see that Dynamic Links have a very simple process flow:
+    * The user begins by clicking the Dynamic Link
+    * If the the needs of the Dynamic Link target are satisfied (this is, the application being installed)
+    then the user is navigated to the target location.
+    * Otherwise, if the application requires install in order to navigate to the Dynamic Link target,
+    the the user is taken to the point of install for the application.
+    Once the application has been installed, the user is navigated to the target location of the Dynamic Link.
+
+    DynamicLinkLocation.png
+
+    And if that wasn’t all, we can integrate Dynamic Links with Firebase Analytics to track the interaction with
+    any links that we generate for our applications. But if we only require simple tracking,
+    then we can use the automatic built-in analytics from the Dynamic Links panel within the
+    Firebase Console where we can also obtain attribution and referrer information for interacted links
+    with no extra effort required from our side.
+
+## Creating Dynamic Links
+Before we get started, we’re going to begin by creating a Dynamic Link from within the Firebase Console.
+Let’s begin by navigating to the Dynamic Links section here:
+ https://console.firebase.google.com/project/YOUR_PROJECT_ID/durablelinks/links/
+
+
+Once you’ve navigated this page you’ll need to begin by taking note of your Dynamic Link domain — 
+you’ll need this in order to programatically create dynamic links (if you wish to do so!). You’ll find it here
+
+NewDynamilLink.png
+
+Now you’ve done that, let’s go ahead and click that `GET STARTED` button on the Dynamic Links card.
+
+GetStarted.png
+
+## Generate Dynamic Link
+
+We’re now presented with two options, at this point we want to Generate a Dynamic Link — if this option
+isn’t already selected then click the radio button to be shown the form for creating a dynamic link.
+
+CreateDynamicLink.png
+
+We begin by filling out the first two properties for the form:
+
+  * Link name
+      This is the name which you’ll be using to define the link, be sure to make it short and descriptive.
+      This name will be used when you’re tracking data related to the dynamic link.
+  * Link URL
+      The deep link in which the application will open for this link.
+
+  Note: Both of these are required before we can continue.
+
+  We’re then asked to fill out the details for the behaviour on Android.
+  Here, we’re going to open a deep-link for our link behaviour.
+
+  DeepLinkPackageName.png
+
+  Once selecting the app that you want to apply the behaviour to, we need to select where to send
+  the user to if our app is not installed. We can either:
+
+    * Send the user to our Google Play page to install our application
+    * Send them to the deep link URL
+    * Send them to a custom URL of our choosing
+
+  In this case where the application isn’t installed,
+  it makes sense to forward the user to Google Play so that they can installed our app and
+  continue to the deep link once the installation process has completed.
+
+  However, selecting the Deep Link URL option will open your defined deep link in the users mobile browser.
+  Finally, selecting Custom URL allows you to enter a URL to direct the user to when your application isn’t installed.
+
+  For each of these options there’s also an optional setting to state the maximum version of your application
+  which the option should be applied to.
+  If you don’t set this then the option which you select will be applied to all application versions.
+
+ Finally, we can now add some social meta tags to our dynamic link if we wish.
+ Setting these will allow us to generate a preview to be shown on social networks when our link is being shared.
+ Not setting these will mean that the corresponding social network will generate and use their own meta
+ tags for your dynamic link.
+
+ SocialMetaTagDynamicLink.png
+
+ Here we can set the:
+
+   * Preview Title
+   This is the title of the link which is being shared.
+   * Preview imageURL
+   This is a URL for an image which identifies the link which is being shared.
+   * Preview description
+   This is a description used for provided information about the link being shared.
+
+   All of these are completely optional and are not required to be set.
+
+   ## Handling Dynamic Links in Android
+
+   Now we know a little about how firebase dynamic links work,
+   lets take a look at how we can handle them within our app!
+   This process is pretty simple and only requires a few steps
+
+   ## Add the dependancy
+
+   We need to being by adding the dependancy for firebase invites to our app build.gradle file:
+
+     `compile 'com.google.firebase:firebase-invites:9.8.0'`
+
+     Once this has been added, we now have access to the parts of the firebase API that
+     allow us to handle dynamic links within our application.
+
+     ## Add intent filter for deep links
+
+     Next, we need to add an intent filter to our manifest file so that we can handle deep links — 
+     this allows our application to receive the data for the dynamic link
+     after the application has been installed from the playstore.
+
+    ```
+    <intent-filter>
+    <action android:name="android.intent.action.VIEW"/>
+    <category android:name="android.intent.category.DEFAULT"/>
+    <category android:name="android.intent.category.BROWSABLE"/>
+    <data android:host="joebirch.co" android:scheme="http"/>
+    <data android:host="joebirch.co" android:scheme="https"/>
+   </intent-filter>
+
+   ```
+
+   The host and the scheme attributes above are used to state which values will cause our app to be launched.
+   Here, the activity that has registered this intent filter is registered to be notified when
+   the app receives a deep link for `joebirch.co`
+
+  ## Handling deep links
+
+  So that we can handle deep links, we need to begin by instantiating an instance of the GoogleApiClient class.
+  When doing this, we need to enable the App Invite API,
+  you can see below that we pass in a reference to this api when building the Google Api Client instance.
+
+  ```
+  googleApiClient = new GoogleApiClient.Builder(this)
+            .enableAutoManage(this, this)
+            .addApi(AppInvite.API)
+            .build();
+
+  ```
+
+Once we have our instance,
+we can then use the getInvitation() method to catch any dynamic links when the user opens the
+app after it’s been installed from a clicking a dynamic link.
+You should place this method call within an activity that would be launched by a link, this could be either:
+
+* The main activity for when the user opens the application after installation.
+* Any activities that have an intent filter matching that of the deep link.
+
+```
+AppInvite.AppInviteApi.getInvitation(googleApiClient, this, autoLaunchDeepLink)
+            .setResultCallback(
+                    new ResultCallback<AppInviteInvitationResult>() {
+                        @Override
+                        public void onResult(@NonNull AppInviteInvitationResult result) {
+                            if (result.getStatus().isSuccess()) {
+                                Intent intent = result.getInvitationIntent();
+                                String deepLink = AppInviteReferral.getDeepLink(intent);
+                              // Handloe the deep link
+                            } else {
+                                Log.d(TAG, "Oops, looks like there was no deep link found!");
+                            }
+                        }
+                    });
+```
+
+You’ll notice that there is a third parameter to the getInvitation() method — 
+this a boolean value which allows us to state whether the link should be automatically broadcasted once it has been retrieved.
+If this is set to false however, then calling getInvitationIntent() from the AppInviteInvitationResult instance
+will allow us to retrieve the intent and start it when we wish.
+
+
+The flow here only consists of a few parts:
+
+  * If the user installs our app from a dynamic link then the main activity of our app opens from the invitation.
+  * This activity calls the getInvitation() method and fetches the invitation.
+  Once the invitation has been received, the method will update the invitation state to installed and pass us a reference to the AppInviteInvitationResult instance.
+  * We can use the getInvitationIntent() from this instance to fetch both the invitation ID and the deep link which is to be launched.
+  * If we’ve set auto-launch boolean value in our getInvitation() method call to true then the app is re-launched using the deep link.
+  If this deep link points to another activity, then that activity is launched.
+
+  * Otherwise, if we have this auto-launch value set to false then our app is responsible for launching the intent when we see fit.
+
+  * However, if the app was already installed when the user clicked the dynamic link then the re-launching of the application will not take place.
+  This is because the invitation data with the AppInviteInvitationResult will be used to launch the corresponding activity.
+
+
+  ## And That's it
+
+  So we’ve seen what we can do with Firebase Dynamic Links and how to implement them to improve the deep linking experience.
+  I hope from this you’ve been able to see the benefits of Firebase and how super easy it is to get setup!
