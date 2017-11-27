@@ -1,20 +1,20 @@
 ---
-layout: post
-title: "Dynamic Linking"
+layout:     post
+title:      "Dynamic Linking"
 categories:
 - blog
 tags:
 - UI
-author: Prinsu Kumar
+author:     Prinsu Kumar
 ---
 
 Firebase is such an exciting new collection of services that I have been reading.
 Now lets cover the feature of `Firebase` to learn excatly how we can use `Firebase Dynamic Links`.
 It allow us to provide deep links that have ability to survive the installation process and more.
-Ex: Suppose you want to link the user to a specific screen in our app from an external source, then
+Ex:         Suppose you want to link the user to a specific screen in our app from an external source, then
 you can create a deep link to achieve this functionality.
 
-Note: Suppose user doesn't have our app installed, in this case deep links would not work.
+Note:       Suppose user doesn't have our app installed, in this case deep links would not work.
 Then Firebase features what are called `Dynamic Links` these links are as same as deep links,
 except they are able to provide the install process. So if the user clicks one of these links without
 having our app installed, it will take up to install the app from `Google play store` or your custom app link
@@ -49,10 +49,10 @@ youtube or some other app that is also configured to handle youtube video urls.
 
 ### Why Deep Linking ?
 
-Link Name: This is the name which you will be using to define the link,
+Link Name:  This is the name which you will be using to define the link,
 make sure it should short and descriptive.
 
-Link URL: The deep link in which the application will open for this link.
+Link URL:   The deep link in which the application will open for this link.
 
 There are multiple use cases. Some of them are:
 
@@ -141,7 +141,7 @@ We begin by filling out the first two properties for the form:
   * Link URL
       The deep link in which the application will open for this link.
 
-  Note: Both of these are required before we can continue.
+  Note:     Both of these are required before we can continue.
 
   We’re then asked to fill out the details for the behaviour on Android.
   Here, we’re going to open a deep-link for our link behaviour.
