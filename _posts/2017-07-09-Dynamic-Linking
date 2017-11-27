@@ -242,7 +242,7 @@ AppInvite.AppInviteApi.getInvitation(googleApiClient, this, autoLaunchDeepLink)
                             if (result.getStatus().isSuccess()) {
                                 Intent intent = result.getInvitationIntent();
                                 String deepLink = AppInviteReferral.getDeepLink(intent);
-                              // Handloe the deep link
+                              // Handle the deep link
                             } else {
                                 Log.d(TAG, "Oops, looks like there was no deep link found!");
                             }
