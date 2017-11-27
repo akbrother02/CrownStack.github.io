@@ -94,7 +94,9 @@ They’re basically deep links on steroids with the ability to:
     the the user is taken to the point of install for the application.
     Once the application has been installed, the user is navigated to the target location of the Dynamic Link.
 
-    DynamicLinkLocation.png
+
+    <img src="/static/dynamic_link_location.png" alt="Drawing" style="width: 600px;"/>
+
 
     And if that wasn’t all, we can integrate Dynamic Links with Firebase Analytics to track the interaction with
     any links that we generate for our applications. But if we only require simple tracking,
@@ -103,6 +105,7 @@ They’re basically deep links on steroids with the ability to:
     with no extra effort required from our side.
 
 ## Creating Dynamic Links
+
 Before we get started, we’re going to begin by creating a Dynamic Link from within the Firebase Console.
 Let’s begin by navigating to the Dynamic Links section here:
  https://console.firebase.google.com/project/YOUR_PROJECT_ID/durablelinks/links/
@@ -111,18 +114,24 @@ Let’s begin by navigating to the Dynamic Links section here:
 Once you’ve navigated this page you’ll need to begin by taking note of your Dynamic Link domain — 
 you’ll need this in order to programatically create dynamic links (if you wish to do so!). You’ll find it here
 
-NewDynamilLink.png
+
+<img src="/static/new_dynamic_link.png" alt="Drawing" style="width: 600px;"/>
+
 
 Now you’ve done that, let’s go ahead and click that `GET STARTED` button on the Dynamic Links card.
 
-GetStarted.png
+
+    <img src="/static/get_started.png" alt="Drawing" style="width: 600px;"/>
+
 
 ## Generate Dynamic Link
 
 We’re now presented with two options, at this point we want to Generate a Dynamic Link — if this option
 isn’t already selected then click the radio button to be shown the form for creating a dynamic link.
 
-CreateDynamicLink.png
+
+    <img src="/static/create_dynamic_link.png" alt="Drawing" style="width: 600px;"/>
+
 
 We begin by filling out the first two properties for the form:
 
@@ -137,7 +146,9 @@ We begin by filling out the first two properties for the form:
   We’re then asked to fill out the details for the behaviour on Android.
   Here, we’re going to open a deep-link for our link behaviour.
 
-  DeepLinkPackageName.png
+
+  <img src="/static/deep_link_package_name.png" alt="Drawing" style="width: 600px;"/>
+
 
   Once selecting the app that you want to apply the behaviour to, we need to select where to send
   the user to if our app is not installed. We can either:
@@ -162,7 +173,9 @@ We begin by filling out the first two properties for the form:
  Not setting these will mean that the corresponding social network will generate and use their own meta
  tags for your dynamic link.
 
- SocialMetaTagDynamicLink.png
+
+   <img src="/static/social_meta_tag_dynamic_link.png" alt="Drawing" style="width: 600px;"/>
+
 
  Here we can set the:
 
