@@ -24,6 +24,7 @@ CocoaPods needs a source for the Pod. In our case, we use GitHub for this. I wil
 
 In brief, here is what you need to do:
 
+```swift
 1. Create a repository on Github. Call it "Your Pod Name or Project Name".
 2. Copy the URL to your repository.
 3. In Terminal, navigate to your project.
@@ -32,6 +33,7 @@ In brief, here is what you need to do:
 6. Commit the changes: git commit -m "init"
 7. Add a remote origin: git remote add origin <paste your URL here>
 8. Push your commit: git push -u origin master.
+```
 
 Your code has been pushed to a git repository.
 
@@ -66,11 +68,13 @@ sudo gem install cocoapods --pre
 
 Follow the following steps to create podspec :-
 
+```swift
 1. Navigate to your project file in the Terminal.
 2. Run the following command to create the file: touch YOURPROJECTNAME.podspec.
 3. Now open the file using an editor.
 4. Paste the following code inside the Podspec.
-
+```
+```swift
 Pod::Spec.new do |s|
   s.name             = 'PODFRAMEWORK'
   s.version          = '0.0.1'
@@ -89,11 +93,13 @@ Write your project description here
   s.source_files = 'PODFRAMEWORK/*'
 
 end
+```
 
 The above variables of CocoaPod after 's' is the required fields. We need to fill all the required variables.
 
 Lets find the explanation below :-
 
+```swift
 1. s.name - It is the name of the pod which others use to add to their project.
 
 2. s.version - This is the version of your pod which we had released above in the github.
@@ -111,6 +117,7 @@ Note : Make sure that the description is longer than the summary otherwise you w
 7. s.source - Fill your github repository source url.
 
 8. s.source_files - This is tricky one and most important. It tells CocoaPods which files you need to clone. Lets take one example to understand this :
+```
 
 Suppose you have project where source file name is 'PODFRAMEWORK' and inside that you want to provide all the swift files to user so you will simply give source url as :
 
