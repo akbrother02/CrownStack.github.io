@@ -91,3 +91,26 @@ Running `fastlane init` will also create a `Fastfile` , which is a ruby file tha
       fastlane match init
 
       ```
+  `fastlane` will ask you for a password to use to encrypt and decrypt the repository. I recommend you generate a secure random password and hang on to it somewhere. If you lose that, you'll be in bad shape. Also, anyone who has the password has access to all your certificates. There are benefits to this though, because now any developer on your team can generate certificate using `fastlane` if they access to the repository.
+
+3. Set up your Matchfile
+
+  A Matchfile might look as simple as something like this:
+
+    ```
+    fastlane/Matchfile
+
+    git_url 'git@abc.com:abc/my-project-certificates.git'
+    shallow_clone true         # because I don't need the whole git history of the certs
+    force_for_new_devices true # if someone adds a device I want to make sure they can test the app
+    ```
+  You can set all of these configurations with environment variables in your Matchfile or Fastfile as well, and Fastlane will automatically use them. So you could do something like:
+
+  ```
+  fastlane/Matchfile
+
+  ENV['MATCH_APP_IDENTIFIER'] = com.metova.myproject
+  git_url 'git@lab.metova.com:metova/my-project-certificates.git'
+  shallow_clone true
+  force_for_new_devices true
+  ```
