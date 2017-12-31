@@ -1,5 +1,5 @@
 ---
-title:  "FingerPrint Authentication"
+title:  "Make Easy Authentication With Fingerprint In Android"
 date:   2017-12-31
 author: Ashutosh Singh
 categories:
