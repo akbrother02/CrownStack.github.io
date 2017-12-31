@@ -19,7 +19,7 @@ Android Fingerprint authentication uses smartphone touch sensor to authenticate 
 
 ### implemention of FingerPrint Authentication
 
-To authenticate users via fingerprint scan, get an instance of the new FingerprintManager class and call the authenticate() method. Your app must be running on a compatible device with a fingerprint sensor.
+To authenticate users via the fingerprint scan, get an instance of the new FingerprintManager class and call the authenticate() method. Your app must be running on a compatible device with a fingerprint sensor.
 Steps to enable `FingerPrint Authentication`
 
 * Verify that the lock screen is secure, or in other words, it is protected by PIN, password or pattern.
@@ -29,13 +29,13 @@ Steps to enable `FingerPrint Authentication`
 * Start the authentication process and implement a callback class to handle authentication events.
 
 
-1. Enable the permission in manifest
+#### Enable the permission in manifest
 
 ```
 <uses-permission android:name="android.permission.USE_FINGERPRINT" />
 ```
 
-2. Check the device compatibilty.
+#### Check the device compatibility.
 
 ```
 keyguardManager = (KeyguardManager) getSystemService(KEYGUARD_SERVICE);
@@ -69,9 +69,9 @@ private boolean checkDeviceCompatibility() {
 }
 ```
 
-3. Access to Android Keystore and Generate the Key
+#### Access to Android Keystore and Generate the Key
 
-If device is compatible, then generatethe key.
+If the device is compatible, then generate the key.
 
 ```
 @TargetApi(Build.VERSION_CODES.M)
@@ -104,9 +104,9 @@ If device is compatible, then generatethe key.
     }
 ```
 
-3. Create the Android Cipher
+#### Create the Android Cipher
 
-After generating the key, intialize the cipher that uses the key.
+After generating the key, initialize the cipher that uses the key.
 
 ```
 @TargetApi(Build.VERSION_CODES.M)
@@ -131,7 +131,7 @@ After generating the key, intialize the cipher that uses the key.
    }
 ```
 
-4. If Cipher is initialize then we authenticate the finger print.
+#### If Cipher is initialized then we authenticate the finger print.
 
 ```
 if (cipherInit()) {
@@ -182,3 +182,5 @@ public class FingerprintHandler extends FingerprintManager.AuthenticationCallbac
     }
 }
 ```
+
+Now we have finished the `FingerPrint authentication`.
