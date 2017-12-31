@@ -1,6 +1,6 @@
 ---
 title:  "FingerPrint Authentication"
-date:   2017-06-12
+date:   2017-12-31
 author: Ashutosh Singh
 categories:
 - blog
