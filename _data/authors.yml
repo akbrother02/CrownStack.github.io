@@ -63,3 +63,11 @@ Pushpraj Chaudhary:
     avatar      : "/static/AnkitJaiswal.jpg"
     twitter     : "https://twitter.com/ankitajju"
     github      : "https://github.com/ankitjaiswal1994"
+
+Sahiljeet Singh:
+  name        : "Sahiljeet Singh"
+  email       : "sahiljeet.singh@crownstack.com"
+  bio         : "I'm an Android developer at CrownStack."
+  avatar      : "/static/AashishDhawan.jpeg"
+  twitter     : "https://twitter.com/BobbySandhu333"
+  github      : "https://github.com/BobbySandhu"
