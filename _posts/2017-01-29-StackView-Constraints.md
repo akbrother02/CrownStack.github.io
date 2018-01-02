@@ -15,7 +15,7 @@ You still need to define the layout constrants for the stack view. It just saves
 
 <img src="/static/StackView.png" alt="Drawing" style="width: 600px;"/>
 
-We take 3 stack views which contain UIViews .we embedded these stack view in single view .We arrange them in vertical axis and set its properties as shown screenshots.all enclosed stack view contain same property except middle one.That has Axis in horizontal direction.we have to set the constraints of only outermost stack view to super view which is shown in below image.
+We take 3 stack views which contain UIViews .we embedded these stack views in single view .We arrange them in vertical axis and set its properties as shown screenshots.all enclosed stack view contain same property except middle one.That has Axis in horizontal direction.we have to set the constraints of only outermost stack view to super view which is shown in below image.
 
 <img src="/static/StackViewConstraints.png" alt="Drawing" style="width: 600px;"/>
 
@@ -40,28 +40,52 @@ Padding is used to space the subviews equally to fill the stack view along the a
  In a vertically oriented stack view, the trailing edges of the subviews are aligned with the trailing edge of the stack view.
 ###### (iv) Center :
  The centers of the subviews are aligned with the center axis of the stack view.
-
+***
 #### 2) Programatically Set Constraints
 You can also create constraints Programatically .Here i am to explain it using the NSLayoutConstraint class’s convenience method.
-```
+``` swift
 constraintWithItem:attribute:relatedBy:toItem:attribute:multiplier:constant:
 ```
 Let’s discuss about the parameters of the NSLayoutConstraint(...) method.
-###### The item 
+###### item 
 is the graphic element that the constraint is applied to. In our case, it’s the myView view, but it could be anything else (button, label, image view, etc).
-###### The attribute
+######  attribute
 describes in simple words the type of the constraint we set (like leading, trailing, top, and so on)
-###### The relatedBy
+######  relatedBy
  indicates the relation between the attribute property of the view that the constraint is applied to, and the attribute property of the other view that is related to, and it’s a NSLayoutRelation value.
-###### The toItem 
+######  toItem 
 is another view used as a “reference” for the constraint we create for our view.
 ###### The attribute 
 parameter (second time) is the constraint type of the reference view (here the self.view) that is related to the attribute of the view that we create the constraint for.
-###### The multiplier 
+######  multiplier 
 parameter multiplies the value of the second attribute parameter by the value given as an argument.
-###### The constant 
+###### constant 
 value is actually added to the second attribute parameter value, so the first attribute parameter referring to the view set in the item produces the desired result.
+
+Along with it we have to set translatesAutoresizingMaskIntoConstraints to false.
 
 We can set all constraints as described and add them with given item as follow
 
 <img src="/static/Programatically Constraints.png" alt="Drawing" style="width: 600px;"/>
+
+It will show red square of given size in middle.
+We can use it according to our requirment.
+###### Set Constraints Using Anchors
+
+The NSLayoutAnchor class is a factory class for creating NSLayoutConstraint objects using a fluent API. Use these constraints to programatically define your layout using Auto Layout.
+
+Layout anchors are properties on a UIView (or UILayoutGuide). Each property is a subclass of NSLayoutAnchor with methods to directly create constraints to other layout anchors of the same type. A UIView has twelve different layout anchor properties you can use to create horizontal, vertical or size-based constraints.
+
+<img src="/static/AnchorConstraints.png" alt="Drawing" style="width: 600px; height: "/>
+
+
+You first set translatesAutoresizingMaskIntoConstraints to false. This tells the view that it’s using Auto Layout rather than frames.
+
+###### i) NSLayoutDimension:
+ This subclass is used to create layout constraints that describe the width and height of a view.
+###### ii) NSLayoutXAxisAnchor:
+ This subclass is used to create horizontal layout constraints.
+###### iii) NSLayoutYAxisAnchor:
+ This subclass is used to create vertical layout constraints.
+
+We can use all the properties as defined in upper screenshot.
