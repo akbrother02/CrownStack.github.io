@@ -11,7 +11,7 @@ tags:
 
  We can embed multiple UI objects into one by using stack views. For views embedded in a stack view, you no longer need to define auto layout constraints.
 We select two or more view objects and then choose the Stack option. Interface Builder then embeds the objects into a stack view and resizes it automatically.
-We can embed a stack view in another stack view to build more complex user interfaces
+We can embed a stack view in another stack view to build more complex user interfaces.
 
 <img src="/static/StackView1.png" alt="Drawing" style="width: 700px;"/>
 
