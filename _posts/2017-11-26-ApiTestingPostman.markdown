@@ -10,9 +10,17 @@ tags:
 
 I guess we all are using POSTMAN or at least used once to test our api's. So we are quiet familiar with POSTMAN. This blog is all about writing Scripts to test api's on POSTMAN.
 
-Now let me tell you why this is important and you must adopt this, suppose you are creating an application then of course you must have a frontend, backend, testers and many more. There always comes a situation where some apis get fail either due to bad request or something else and to find that you always have to debug into your application to find the root cause. But via using postman scripts you will write the script once for the api and you can test it on one click and check it whether all the cases are "PASS" or "FAILED". If failure comes then there is a problem with the backend api or if all the cases has been passed then there must be a problem in frontend. And tester can also use it to check the bug belongs to frontend or backend.
+Now let me tell you why this is important and you must adopt this, suppose you are creating an application then of course you must have a frontend, backend, testers and many more. There always comes a situation where some apis get fail either due to bad request or something else and to find that you always have to debug into your application to find the root cause.
 
-"THIS WILL SAVE A LOT OF TIME" as you need to write the script once and even you can use that same script on your future apps. So maybe first time when you're writing scripts may take time, but do not panic believe me it will save a lot of time later and more importantly you will get to know the root cause by just one click.
+ But via using postman scripts you will write the script once for the api and you can test it on one click and check it whether all the cases are "PASS" or "FAILED".
+
+  If failure comes then there is a problem with the backend api or if all the cases has been passed then there must be a problem in frontend.
+
+  And tester can also use it to check the bug belongs to frontend or backend.
+
+**THIS WILL SAVE A LOT OF TIME** as you need to write the script once and even you can use that same script on your future apps.
+
+So maybe first time when you're writing scripts may take time, but do not panic believe me it will save a lot of time later and more importantly you will get to know the root cause by just one click.
 
 Assuming that you have the postman installed on your machine and you're familiar with it.
 
@@ -71,3 +79,19 @@ tests["Gets the correct users url"] = jsonData.base === usersURL;
 Write above snipped on your postman test section and hit api. Refer the image below :-
 
 <img src="/static/base_result_Postman.png" alt="Drawing" style="width: 600px;"/>
+
+**Example 2**
+
+You can test for any character or sentence using the below code snippet :
+
+```
+tests["Has correct updated text"] =
+  responseBody.has("Type your text you want to search");
+  ```
+
+Now atleast, you can write some basic test cases using the above code snippets.
+
+
+  Simply with little bit knowledge of javascript you can write some sweet test cases and make your life easier and safer. 
+
+  All the best :)
