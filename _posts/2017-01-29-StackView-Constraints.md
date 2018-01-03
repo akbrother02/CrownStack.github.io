@@ -1,5 +1,5 @@
 ---
-title:  "Stack View and Programatically Constraints"
+title:  "Stack View"
 date:   2017-11-29
 author: Satish Phogat
 categories:
@@ -15,11 +15,21 @@ We can embed a stack view in another stack view to build more complex user inter
 
 <img src="/static/StackView1.png" alt="Drawing" style="width: 700px;"/>
 
-We have taken 3 stack views which contain UIViews .First StackView contains 2 views with orange background and second StackView constains 2 view with blue background and last StackView has 3 views with green background. We embedded these stack views in single StackView. We arrange all 3 stack views in vertical axis and set its properties as shown screenshots.all enclosed stack view contain same property except middle one.As views of middle stack are arranged in horizontal direction.We have to set the constraints of only outermost stack view to super view which is shown in below image.
+On the above image, we have taken 3 stack views which contain UIViews.
 
-<img src="/static/StackViewConstraints.png" alt="Drawing" style="width: 600px;"/>
+First StackView contains 2 views with orange background.
 
-StackView contains 4 properties : Axis, Distributions, Alignment and spacing.
+Second StackView contains 2 view with blue background.
+
+Third and last StackView has 3 views with green background.
+
+ We embedded these stack views in single StackView. We arrange all 3 stack views in vertical axis and set its properties as shown on screenshots.
+
+ All enclosed stack view contain same property except middle one. As views of middle stack are arranged in horizontal direction so its axis is horizontal. We have to set the constraints of only outermost stack view to super view which is shown in below image.
+
+<img src="/static/StackViewConstraint.png" alt="Drawing" style="width: 600px;"/>
+
+StackView contains 4 properties : Axis, Distributions, Alignment and Spacing.
 
 ###### Axis
 This is of 2 types.
@@ -56,7 +66,7 @@ This type adjusts the spacing between subviews without resizing the subviews the
 ###### (v) EqualCentering :
  attempts to ensure the centers of each subview are equally spaced.
 
-###### spacing :
-It will define the spacing between stack views and its subviews.We have taken 10 spacing between StackViews and same spacing between subviews of different StackView.
+###### Spacing :
+It will define the spacing between stack views and its subviews.We have taken 10 spacing between StackViews and same spacing between subviews of different StackViews.
 
 ***
