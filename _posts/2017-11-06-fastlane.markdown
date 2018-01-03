@@ -1,0 +1,116 @@
+---
+title:  "fastlane"
+date:   2017-11-06
+author: Sagar Kumar
+categories:
+- blog
+tags:
+- iOS
+---
+
+`fastlane` is a tool for developers that can do following tedious tasks with simple commands.
+
+1. Generating screenshots.
+2. Dealing with provisioning profiles.
+3. Releasing application.
+
+### `fastlane` Tools:
+
+* `deliver`: Upload screenshots, metadata, and your app to the App Store
+* `snapshot`: Automate taking localized screenshots of your iOS and tvOS apps on every device
+* `frameit`: Quickly put your screenshots into the right device frames
+* `pem`: Automatically generate and renew your push notification profiles
+* `sigh`: Because you would rather spend your time building stuff than fighting provisioning
+* `produce`: Create new iOS apps on iTunes Connect and Dev Portal using the command line
+* `cert`: Automatically create and maintain iOS code signing certificates
+* `spaceship`: Ruby library to access the Apple Dev Center and iTunes Connect
+* `pilot`: The best way to manage your TestFlight testers and builds from your terminal
+* `boarding`: The easiest way to invite your TestFlight beta testers
+* `gym`: Building your iOS apps has never been easier
+* `match`: Easily sync your certificates and profiles across your team using Git
+* `scan`: The easiest way to run tests for your iOS and Mac apps
+
+
+## Setting up Fastlane
+
+### 1. Install `fastlane`:
+Open terminal and run this command:
+
+ `brew cask install fastlane`
+
+### 2. Add `fastlane` to project:
+Navigate your terminal to your project's directory and run this command:
+
+`fastlane init`
+
+`fastlane init` will prompt you for various information like Your Apple ID (e.g. abc@abc.com), asking if you want to use certain tools, and storing the information you input into files. It will create a directory called 'fastlane' in your root directory and a file named `Appfile`.
+
+The `Appfile` contains information that is universal to all the things you want to do with `fastlane`. For instance, you would probably specify your `apple_id` and `app_identifier/bundle_id` in it like so:
+
+  ```
+  fastlane/Appfile
+
+  apple_id 'abc@abc.com'
+  app_identifier 'com.abc.MyBundleID'
+
+  ```
+If you setup the above, all the `fastlane` tools should know what your apple_id and app_identifier is.
+
+Running `fastlane init` will also create a `Fastfile` , which is a ruby file that defines all your `lanes`. A lane is a set of instructions you want `fastlane` to run. Here is an example of Fastfile:
+
+  ```
+  fastlane/Fastfile
+
+  default_platform :ios
+
+  platform :ios do
+    lane :develop do
+      produce(itc_team_id: '1643054')
+      match(type: development)
+      gym(configuration: 'Development')
+    end
+
+    lane :release do |options|
+      match
+      gym(clean: true, silent: options[:silent])
+    end
+  end
+
+  ```
+
+### 3. Deliver app to TestFlight
+
+#### Setting up `match`
+1. Create a repository on Git to store your certificates.
+
+  * `match` uses another `fastlane` tool call `sigh` to generate certificates and provisioning profiles, and then automatically encrypts them and stores them in a repository. This is a huge benefit because none of the certificates will be stored on your local machine. No more emailing p12s around to other developers, or forgetting where you stored that .mobileprovision profile. If you would rather not store the certificates in a repository, you can always just use `sign` directly.
+
+2. Once you've created a repository to store the certificates, run match init
+
+      ```
+      fastlane match init
+
+      ```
+  `fastlane` will ask you for a password to use to encrypt and decrypt the repository. I recommend you generate a secure random password and hang on to it somewhere. If you lose that, you'll be in bad shape. Also, anyone who has the password has access to all your certificates. There are benefits to this though, because now any developer on your team can generate certificate using `fastlane` if they access to the repository.
+
+3. Set up your Matchfile
+
+  A Matchfile might look as simple as something like this:
+
+    ```
+    fastlane/Matchfile
+
+    git_url 'git@abc.com:abc/my-project-certificates.git'
+    shallow_clone true         # because I don't need the whole git history of the certs
+    force_for_new_devices true # if someone adds a device I want to make sure they can test the app
+    ```
+  You can set all of these configurations with environment variables in your Matchfile or Fastfile as well, and Fastlane will automatically use them. So you could do something like:
+
+  ```
+  fastlane/Matchfile
+
+  ENV['MATCH_APP_IDENTIFIER'] = com.metova.myproject
+  git_url 'git@lab.metova.com:metova/my-project-certificates.git'
+  shallow_clone true
+  force_for_new_devices true
+  ```
