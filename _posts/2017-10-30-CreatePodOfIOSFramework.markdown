@@ -24,7 +24,7 @@ CocoaPods needs a source for the Pod. In our case, we use GitHub for this. I wil
 
 In brief, here is what you need to do:
 
-```swift
+```
 1. Create a repository on Github. Call it "Your Pod Name or Project Name".
 2. Copy the URL to your repository.
 3. In Terminal, navigate to your project.
@@ -61,20 +61,21 @@ Its all done with GitHub. Now need to deploy our code on CocoaPod.
 
 I suppose you have the POD installed on your mac or you can installed it using the below command :
 
-sudo gem install cocoapods --pre
+`sudo gem install cocoapods --pre`
 
 
 ### Creating a Podspec for your project
 
 Follow the following steps to create podspec :-
 
-```swift
+```
 1. Navigate to your project file in the Terminal.
 2. Run the following command to create the file: touch YOURPROJECTNAME.podspec.
 3. Now open the file using an editor.
 4. Paste the following code inside the Podspec.
 ```
-```swift
+
+```
 Pod::Spec.new do |s|
   s.name             = 'PODFRAMEWORK'
   s.version          = '0.0.1'
@@ -99,7 +100,7 @@ The above variables of CocoaPod after 's' is the required fields. We need to fil
 
 Lets find the explanation below :-
 
-```swift
+```
 1. s.name - It is the name of the pod which others use to add to their project.
 
 2. s.version - This is the version of your pod which we had released above in the github.
@@ -137,15 +138,15 @@ Now CocoaPod will verify that nothing is wrong in your project as per there norm
 
 Now lets lint your project. Navigate to your project directory and run the below command :-
 
-pod lib lint
+`pod lib lint`
 
 you may encounter some warnings or error as below :
 
 <img src="/static/pod_lib_lint_warning.png" alt="Drawing" style="width: 600px;"/>
 
- For warnings it will guide you to add --allow-warnings like this :
+ For warnings it will guide you to `add --allow-warnings` like this :
 
-pod lib lint --allow-warnings
+`pod lib lint --allow-warnings`
 
 For error, you can use github issues section to check and rectify your problem but if you have followed the above points carefully you will not face any kind of error.
 
@@ -156,15 +157,15 @@ For error, you can use github issues section to check and rectify your problem b
 
 Cheers its time to publish your pod to other developers. Everything is good till now. Now you need to trunk your account via CocoaPod. Trunk is actually not validating your account it is just creating session. You do not need any password here just need an email and then type the below command :-
 
-pod trunk register <Your Email>
+`pod trunk register <Your Email>`
 
 Goto your email and click on the link provided by CocoaPod. Now its all done we just need to publish our pod.
 
 ### Pushing Your Pod
 
-All that is left is to push your podspec using Trunk to CocoaPods:
+All that is left is to push your `podspec` using Trunk to CocoaPods:
 
-pod trunk push YOURPROJECTNAME.podspec
+pod trunk push `YOURPROJECTNAME.podspec`
 
 You will get the success message as shown below :-
 
