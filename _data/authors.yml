@@ -63,3 +63,9 @@ Pushpraj Chaudhary:
     avatar      : "/static/AnkitJaiswal.jpg"
     twitter     : "https://twitter.com/ankitajju"
     github      : "https://github.com/ankitjaiswal1994"
+
+    Satish Phogat:
+        name        : "Satish Phogat"
+        email       : "satish.phogat@crownstack.com"
+        bio         : "I am an iOS developer at CrownStack."
+        github      : "https://github.com/Satishphogat1"
