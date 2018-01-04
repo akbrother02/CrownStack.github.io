@@ -122,15 +122,15 @@ Note : Make sure that the description is longer than the summary otherwise you w
 
 Suppose you have project where source file name is 'PODFRAMEWORK' and inside that you want to provide all the swift files to user so you will simply give source url as :
 
-'PODFRAMEWORK/*.swift'
+``'PODFRAMEWORK/*.swift'``
 
 where * indicates any file can be used.
 
 Say you want all the files in /PODFRAMEWORK to be included when the Pod is installed. Just put an asterisk instead of the file name and type:
 
-'PODFRAMEWORK/*'
+``'PODFRAMEWORK/*'``
 
-This will include each and every file inside 'PODFRAMEWORK' directory.
+This will include each and every file inside ``'PODFRAMEWORK'`` directory.
 
 ### Linting The CocoaPod Project
 
