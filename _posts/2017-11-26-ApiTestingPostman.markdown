@@ -28,13 +28,13 @@ We are all set to move on :)
 
 Although I suggest you to use your own apis, but if you do not have i am using the sample weather api for testing purpose. Here is the api link :
 
-(http://samples.openweathermap.org/data/2.5/weather?lat=35&lon=139&appid=b1b15e88fa797225412429c1c50c122a1)
+[Weather API](http://samples.openweathermap.org/data/2.5/weather?lat=35&lon=139&appid=b1b15e88fa797225412429c1c50c122a1)
 
 And you can see the sample result below :-
 
 <img src="/static/SampleApiHit_Postman.png" alt="Drawing" style="width: 600px;"/>
 
-### Default Scripts
+## Default Scripts
 
 There are some pre defined scripts in the postman. So we will start from there.
 
@@ -60,7 +60,9 @@ Now lets take another example by checking the response time of your api. Select 
 
 There are more predefined scripts. You can test one by one by yourself. It will help you to understand the javascript code.
 
-### Writing your own custom scripts
+
+## Writing your own custom scripts
+
 
 Postman supports javascript for scripting. You do not need to worry if you do not know javascript. Lets see some example below, that would gave you confidence and some knowledge about javascript, it is pretty easy.
 
@@ -92,6 +94,6 @@ tests["Has correct updated text"] =
 Now atleast, you can write some basic test cases using the above code snippets.
 
 
-  Simply with little bit knowledge of javascript you can write some sweet test cases and make your life easier and safer. 
+  Simply with little bit knowledge of javascript you can write some sweet test cases and make your life easier and safer.
 
   All the best :)
