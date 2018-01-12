@@ -1,5 +1,5 @@
 ---
-title:  "Energy Log with Instruments"
+title:  "Energy, Network and Time Profiling with Instruments"
 date:   2018-01-02
 author: Sagar Kumar
 categories:
@@ -97,3 +97,25 @@ Use the Energy Log profiling to monitor a variety of factors that affect energy 
   1. Launch Instruments, and create a new trace document that targets your device and app with the Energy Log profiling template.
 
   2. From Instruments Menu bar, Choose File > Import Logged Data from Device.
+
+### Monitor Network Connections of an iOS App
+The `Network profiling` template uses the `Connections instrument` to analyze your iOS app’s `TCP/IP` and `UDP/IP` connections.
+
+#### How to record network connections used by your iOS app
+1. Connect your `iOS device` to your Mac.
+
+2. Launch `Instruments`.
+
+3. In the profiling template selection dialog that appears, click `Network`.
+
+4. Choose your `iOS device` and `app` from the target device and process lists.
+
+5. Click `Choose` to `create a trace document`.
+
+6. Click the `Record` button in the toolbar (or press `Command-R`) to begin recording.
+
+7. Use your app normally.
+
+8. Click the `Stop` button, or press `Command-R` again, when complete.
+
+9. Examine the collected data.
