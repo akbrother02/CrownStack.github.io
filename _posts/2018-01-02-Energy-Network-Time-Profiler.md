@@ -74,23 +74,23 @@ Use the Energy Log profiling to monitor a variety of factors that affect energy 
 ###### These are following steps to log energy data in iOS Device
   1. Go to Settings > Developer > Logging on your device.
 
-      <img src="/static/settings.png" alt="Drawing" style="width: 200px;"/>
+      <img src="/static/settings.png" alt="Drawing" style="width: 100px;"/>
 
-      <img src="/static/settings_developer.png" alt="Drawing" style="width: 200px;"/>
+      <img src="/static/settings_developer.png" alt="Drawing" style="width: 100px;"/>
 
   2. Enable energy logging.
 
-    <img src="/static/settings_dev_instruments.png" alt="Drawing" style="width: 200px;"/>
+      <img src="/static/settings_dev_instruments.png" alt="Drawing" style="width: 100px;"/>
 
   3. Start recording with device.
 
-    <img src="/static/startrecording.png" alt="Drawing" style="width: 200px;"/>
+      <img src="/static/startrecording.png" alt="Drawing" style="width: 100px;"/>
 
   4. Use your device normally.
 
   5. When you’re done, return to Settings > Developer > Logging and tap Stop Recording.
 
-    <img src="/static/startrecording.png" alt="Drawing" style="width: 200px;"/>
+      <img src="/static/startrecording.png" alt="Drawing" style="width: 100px;"/>
 
 ##### How to import logged energy data from an iOS device to Mac.
 
