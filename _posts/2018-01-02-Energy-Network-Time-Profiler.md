@@ -90,7 +90,7 @@ Use the Energy Log profiling to monitor a variety of factors that affect energy 
 
   5. When you’re done, return to Settings > Developer > Logging and tap Stop Recording.
 
-      <img src="/static/startrecording.png" alt="Drawing" style="width: 100px;"/>
+      <img src="/static/stoprecording.png" alt="Drawing" style="width: 100px;"/>
 
 ##### How to import logged energy data from an iOS device to Mac.
 
