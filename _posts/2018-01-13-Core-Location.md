@@ -1,5 +1,5 @@
 ---
-title:  "Core Location Tutorial"
+title:  "Geofencing"
 date:   2018-01-13
 author: Satish Phogat
 categories:
@@ -7,7 +7,7 @@ categories:
 tags:
 - iOS
 ---
-###  Core Location
+###  Geofencing
 
 Core Location Framework provides services for determining a user's geographic location.
 
