@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Constraint Layout"
+title: "ConstraintLayout Guide"
 categories:
 - blog
 tags:
@@ -38,7 +38,6 @@ As provided by Xaver Kapeller - "The main purpose of the ConstraintLayout is to 
             android:layout_height="0dp"
             android:minHeight="600dp">
 
-
             <TextView
                 android:id="@+id/text_view_cancel"
                 android:layout_width="wrap_content"
@@ -71,7 +70,6 @@ As provided by Xaver Kapeller - "The main purpose of the ConstraintLayout is to 
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/image_view_profile" />
-
 
             <TextView
                 android:id="@+id/text_view_name"
@@ -124,7 +122,6 @@ As provided by Xaver Kapeller - "The main purpose of the ConstraintLayout is to 
                 app:layout_constraintLeft_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/edit_text_name"
                 tools:ignore="RtlSymmetry" />
-
 
             <TextView
                 android:id="@+id/text_view_password"
@@ -273,7 +270,5 @@ As provided by Xaver Kapeller - "The main purpose of the ConstraintLayout is to 
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toRightOf="parent"
                 app:layout_constraintRight_toLeftOf="parent" />
-
         </android.support.constraint.ConstraintLayout>
-
     </ScrollView>
