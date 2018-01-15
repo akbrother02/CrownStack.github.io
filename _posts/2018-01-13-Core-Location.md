@@ -126,4 +126,9 @@ extension ViewController: CLLocationManagerDelegate {
 ```
 Write the whole code in single ViewController and execute. We will see user location and regions on map and required functionality. Modify it as you wish.
 
+**Note** : We can update user's location from storyboard also to test as shown in below screenshot.
+
+<img src="/static/LocationUpdate.png" alt="Drawing" style="width: 600px;"/>
+
+
 Thanks :)
